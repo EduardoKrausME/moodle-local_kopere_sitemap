@@ -1,0 +1,95 @@
+{{!
+    This file is part of Moodle - https://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_sitemap/index
+
+    Example context (json):
+    {
+      "title": "XML Sitemap",
+      "description": "Manage and review your website sitemap configuration and availability.",
+      "statuslabel": "Status",
+      "statusvalue": "Active",
+      "sitemapurllabel": "Sitemap URL",
+      "sitemapurl": "https://example.com/sitemap.xml",
+      "openxmllabel": "Open XML Sitemap",
+      "items": [
+        {
+          "name": "Posts",
+          "enabled": true
+        },
+        {
+          "name": "Pages",
+          "enabled": true
+        },
+        {
+          "name": "Categories",
+          "enabled": false
+        },
+        {
+          "name": "Tags",
+          "enabled": false
+        }
+      ]
+    }
+}}
+
+<div class="container-fluid py-3">
+    <div class="row justify-content-center">
+        <div class="col-12 col-xl-8">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <h1 class="h3 mb-3">{{title}}</h1>
+                    <p class="text-muted mb-4">{{description}}</p>
+
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-4">
+                            <div class="p-3 bg-light rounded-3">
+                                <div class="small text-muted">{{statuslabel}}</div>
+                                <div class="fw-semibold">{{statusvalue}}</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-8">
+                            <div class="p-3 bg-light rounded-3">
+                                <div class="small text-muted">{{sitemapurllabel}}</div>
+                                <div class="fw-semibold text-break">{{sitemapurl}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <a class="btn btn-primary" href="{{sitemapurl}}" target="_blank">{{openxmllabel}}</a>
+                    </div>
+
+                    <div class="list-group">
+                        {{#items}}
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>{{name}}</span>
+                                {{#enabled}}
+                                    <span class="badge text-bg-success">On</span>
+                                {{/enabled}}
+                                {{^enabled}}
+                                    <span class="badge text-bg-secondary">Off</span>
+                                {{/enabled}}
+                            </div>
+                        {{/items}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
