@@ -54,4 +54,3 @@ $string['settings_includefrontpage_desc'] = 'Include the site frontpage URL.';
 $string['settings_includefrontpagemodules'] = 'Include frontpage modules';
 $string['settings_includefrontpagemodules_desc'] = 'Include visible activity links from course id 1.';
 $string['settings_sitemapurl'] = 'Sitemap URL';
-$string['settings_sitemapurl_desc'] = 'Public URL path for the sitemap XML. Example: /local/sitemap/sitemap.php';
