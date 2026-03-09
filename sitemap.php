@@ -17,12 +17,12 @@
 /**
  * sitemap.php
  *
- * @package   local_sitemap
+ * @package   local_kopere_sitemap
  * @copyright 2026 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-use local_sitemap\service\sitemap_builder;
+use local_kopere_sitemap\service\sitemap_builder;
 
 // phpcs:disable moodle.Files.RequireLogin.Missing
 require_once(__DIR__ . "/../../config.php");

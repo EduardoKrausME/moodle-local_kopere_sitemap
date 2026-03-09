@@ -17,7 +17,7 @@
 /**
  * settings.php
  *
- * @package   local_sitemap
+ * @package   local_kopere_sitemap
  * @copyright 2026 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -25,60 +25,60 @@
 defined('MOODLE_INTERNAL') || die;
 
 if ($hassiteconfig) {
-    $settings = new admin_settingpage("local_sitemap", get_string("pluginname", "local_sitemap"));
+    $settings = new admin_settingpage("local_kopere_sitemap", get_string("pluginname", "local_kopere_sitemap"));
 
     $settings->add(new admin_setting_configcheckbox(
-        "local_sitemap/enabled",
-        get_string("settings_enabled", "local_sitemap"),
-        get_string("settings_enabled_desc", "local_sitemap"),
+        "local_kopere_sitemap/enabled",
+        get_string("settings_enabled", "local_kopere_sitemap"),
+        get_string("settings_enabled_desc", "local_kopere_sitemap"),
         1
     ));
 
     $settings->add(new admin_setting_heading(
-        "local_sitemap/sitemapurl",
-        get_string("settings_sitemapurl", "local_sitemap"),
-        "/local/sitemap/sitemap.php",
+        "local_kopere_sitemap/sitemapurl",
+        get_string("settings_sitemapurl", "local_kopere_sitemap"),
+        "/local/kopere_sitemap/sitemap.php",
     ));
 
     $settings->add(new admin_setting_configcheckbox(
-        "local_sitemap/includefrontpage",
-        get_string("settings_includefrontpage", "local_sitemap"),
-        get_string("settings_includefrontpage_desc", "local_sitemap"),
+        "local_kopere_sitemap/includefrontpage",
+        get_string("settings_includefrontpage", "local_kopere_sitemap"),
+        get_string("settings_includefrontpage_desc", "local_kopere_sitemap"),
         1
     ));
 
     $settings->add(new admin_setting_configcheckbox(
-        "local_sitemap/includecourses",
-        get_string("settings_includecourses", "local_sitemap"),
-        get_string("settings_includecourses_desc", "local_sitemap"),
+        "local_kopere_sitemap/includecourses",
+        get_string("settings_includecourses", "local_kopere_sitemap"),
+        get_string("settings_includecourses_desc", "local_kopere_sitemap"),
         1
     ));
 
     $settings->add(new admin_setting_configcheckbox(
-        "local_sitemap/includecategories",
-        get_string("settings_includecategories", "local_sitemap"),
-        get_string("settings_includecategories_desc", "local_sitemap"),
+        "local_kopere_sitemap/includecategories",
+        get_string("settings_includecategories", "local_kopere_sitemap"),
+        get_string("settings_includecategories_desc", "local_kopere_sitemap"),
         1
     ));
 
     $settings->add(new admin_setting_configcheckbox(
-        "local_sitemap/includeblog",
-        get_string("settings_includeblog", "local_sitemap"),
-        get_string("settings_includeblog_desc", "local_sitemap"),
+        "local_kopere_sitemap/includeblog",
+        get_string("settings_includeblog", "local_kopere_sitemap"),
+        get_string("settings_includeblog_desc", "local_kopere_sitemap"),
         1
     ));
 
     $settings->add(new admin_setting_configcheckbox(
-        "local_sitemap/includeforums",
-        get_string("settings_includeforums", "local_sitemap"),
-        get_string("settings_includeforums_desc", "local_sitemap"),
+        "local_kopere_sitemap/includeforums",
+        get_string("settings_includeforums", "local_kopere_sitemap"),
+        get_string("settings_includeforums_desc", "local_kopere_sitemap"),
         1
     ));
 
     $settings->add(new admin_setting_configcheckbox(
-        "local_sitemap/includefrontpagemodules",
-        get_string("settings_includefrontpagemodules", "local_sitemap"),
-        get_string("settings_includefrontpagemodules_desc", "local_sitemap"),
+        "local_kopere_sitemap/includefrontpagemodules",
+        get_string("settings_includefrontpagemodules", "local_kopere_sitemap"),
+        get_string("settings_includefrontpagemodules_desc", "local_kopere_sitemap"),
         1
     ));
 

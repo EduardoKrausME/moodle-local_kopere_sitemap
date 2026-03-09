@@ -17,12 +17,12 @@
 /**
  * config.php
  *
- * @package   local_sitemap
+ * @package   local_kopere_sitemap
  * @copyright 2026 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace local_sitemap;
+namespace local_kopere_sitemap;
 
 use dml_exception;
 
@@ -37,7 +37,7 @@ class config {
      * @throws dml_exception
      */
     public static function is_enabled(): bool {
-        return (bool)get_config("local_sitemap", "enabled");
+        return (bool)get_config("local_kopere_sitemap", "enabled");
     }
 
     /**
@@ -47,7 +47,7 @@ class config {
      * @throws dml_exception
      */
     public static function include_frontpage(): bool {
-        return (bool)get_config("local_sitemap", "includefrontpage");
+        return (bool)get_config("local_kopere_sitemap", "includefrontpage");
     }
 
     /**
@@ -57,7 +57,7 @@ class config {
      * @throws dml_exception
      */
     public static function include_courses(): bool {
-        return (bool)get_config("local_sitemap", "includecourses");
+        return (bool)get_config("local_kopere_sitemap", "includecourses");
     }
 
     /**
@@ -67,7 +67,7 @@ class config {
      * @throws dml_exception
      */
     public static function include_categories(): bool {
-        return (bool)get_config("local_sitemap", "includecategories");
+        return (bool)get_config("local_kopere_sitemap", "includecategories");
     }
 
     /**
@@ -77,7 +77,7 @@ class config {
      * @throws dml_exception
      */
     public static function include_blog(): bool {
-        return (bool)get_config("local_sitemap", "includeblog");
+        return (bool)get_config("local_kopere_sitemap", "includeblog");
     }
 
     /**
@@ -87,7 +87,7 @@ class config {
      * @throws dml_exception
      */
     public static function include_forums(): bool {
-        return (bool)get_config("local_sitemap", "includeforums");
+        return (bool)get_config("local_kopere_sitemap", "includeforums");
     }
 
     /**
@@ -97,7 +97,7 @@ class config {
      * @throws dml_exception
      */
     public static function include_frontpage_modules(): bool {
-        return (bool)get_config("local_sitemap", "includefrontpagemodules");
+        return (bool)get_config("local_kopere_sitemap", "includefrontpagemodules");
     }
 
     /**
@@ -109,9 +109,9 @@ class config {
     public static function get_public_sitemap_url(): string {
         global $CFG;
 
-        $configured = trim((string)get_config("local_sitemap", "sitemapurl"));
+        $configured = trim((string)get_config("local_kopere_sitemap", "sitemapurl"));
         if ($configured === "") {
-            $configured = "/local/sitemap/sitemap.php";
+            $configured = "/local/kopere_sitemap/sitemap.php";
         }
 
         if (preg_match("/^https?:\\/\\//i", $configured)) {

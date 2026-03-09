@@ -17,12 +17,12 @@
 /**
  * blog_repository.php
  *
- * @package   local_sitemap
+ * @package   local_kopere_sitemap
  * @copyright 2026 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace local_sitemap\repository;
+namespace local_kopere_sitemap\repository;
 
 use core\exception\moodle_exception;
 use ddl_exception;

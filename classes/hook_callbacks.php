@@ -17,19 +17,19 @@
 /**
  * hook_callbacks.php
  *
- * @package   local_sitemap
+ * @package   local_kopere_sitemap
  * @copyright 2026 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace local_sitemap;
+namespace local_kopere_sitemap;
 
 use core\hook\output\before_standard_head_html_generation;
 use dml_exception;
 use html_writer;
 
 /**
- * Hook callbacks for the local_sitemap plugin.
+ * Hook callbacks for the local_kopere_sitemap plugin.
  */
 class hook_callbacks {
     /**

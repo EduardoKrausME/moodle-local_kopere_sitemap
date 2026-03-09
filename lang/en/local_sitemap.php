@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * local_sitemap.php
+ * local_kopere_sitemap.php
  *
- * @package   local_sitemap
+ * @package   local_kopere_sitemap
  * @copyright 2026 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -38,7 +38,7 @@ $string['adminpage_status_disabled'] = 'Disabled';
 $string['adminpage_status_enabled'] = 'Enabled';
 $string['adminpage_title'] = 'Public sitemap';
 $string['pluginname'] = 'Public sitemap';
-$string['privacy:metadata'] = 'The local_sitemap plugin does not store personal data.';
+$string['privacy:metadata'] = 'The local_kopere_sitemap plugin does not store personal data.';
 $string['settings_enabled'] = 'Enable plugin';
 $string['settings_enabled_desc'] = 'Enable or disable sitemap generation and sitemap header injection.';
 $string['settings_includeblog'] = 'Include blog';

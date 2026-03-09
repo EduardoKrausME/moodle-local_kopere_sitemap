@@ -17,13 +17,13 @@
 /**
  * hooks.php
  *
- * @package   local_sitemap
+ * @package   local_kopere_sitemap
  * @copyright 2026 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 use core\hook\output\before_standard_head_html_generation;
-use local_sitemap\hook_callbacks;
+use local_kopere_sitemap\hook_callbacks;
 
 defined('MOODLE_INTERNAL') || die;
 

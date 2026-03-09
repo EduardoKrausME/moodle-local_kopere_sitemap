@@ -17,22 +17,22 @@
 /**
  * sitemap_builder.php
  *
- * @package   local_sitemap
+ * @package   local_kopere_sitemap
  * @copyright 2026 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace local_sitemap\service;
+namespace local_kopere_sitemap\service;
 
 use core\exception\moodle_exception;
 use ddl_exception;
 use dml_exception;
-use local_sitemap\config;
-use local_sitemap\repository\blog_repository;
-use local_sitemap\repository\category_repository;
-use local_sitemap\repository\course_repository;
-use local_sitemap\repository\forum_repository;
-use local_sitemap\repository\frontpage_repository;
+use local_kopere_sitemap\config;
+use local_kopere_sitemap\repository\blog_repository;
+use local_kopere_sitemap\repository\category_repository;
+use local_kopere_sitemap\repository\course_repository;
+use local_kopere_sitemap\repository\forum_repository;
+use local_kopere_sitemap\repository\frontpage_repository;
 use XMLWriter;
 
 /**

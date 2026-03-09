@@ -17,7 +17,7 @@
 /**
  * Plugin version metadata.
  *
- * @package   local_sitemap
+ * @package   local_kopere_sitemap
  * @copyright 2026 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -26,6 +26,6 @@ defined('MOODLE_INTERNAL') || die;
 
 $plugin->version = 2026030900;
 $plugin->release = "0.1.0";
-$plugin->component = "local_sitemap";
+$plugin->component = "local_kopere_sitemap";
 $plugin->requires = 2024042200;
 $plugin->maturity = MATURITY_STABLE;

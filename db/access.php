@@ -17,7 +17,7 @@
 /**
  * access.php
  *
- * @package   local_sitemap
+ * @package   local_kopere_sitemap
  * @copyright 2026 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die;
 
 $capabilities = [
-    "local/sitemap:viewadmin" => [
+    "local/kopere_sitemap:viewadmin" => [
         "captype" => "read",
         "contextlevel" => CONTEXT_SYSTEM,
         "archetypes" => [

@@ -1,6 +1,6 @@
-# local_sitemap Plugin
+# local_kopere_sitemap Plugin
 
-**local_sitemap** is a Moodle plugin that automatically generates a **public XML sitemap** for the site and adds a reference to the sitemap in the `<head>` of all Moodle pages.
+**local_kopere_sitemap** is a Moodle plugin that automatically generates a **public XML sitemap** for the site and adds a reference to the sitemap in the `<head>` of all Moodle pages.
 
 The plugin’s purpose is to make it easier for **search engines to index your Moodle site** (Google, Yahoo, DuckDuckGo, etc.), allowing crawlers to find relevant public pages on the platform, such as open courses, categories, forums, and homepage content.
 
@@ -20,7 +20,7 @@ These two mechanisms work together to allow search engines to discover and index
 The sitemap is available at the following URL:
 
 ```text
-https://yourmoodle.com/local/sitemap/sitemap.php
+https://yourmoodle.com/local/kopere_sitemap/sitemap.php
 ```
 
 This page generates a **valid XML file following the Sitemap protocol standard**:
@@ -139,7 +139,7 @@ The plugin uses Moodle’s modern **Hooks** system to automatically insert the s
 Example of generated HTML:
 
 ```html
-<link rel="sitemap" type="application/xml" title="Sitemap" href="https://yourmoodle.com/local/sitemap/sitemap.php">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="https://yourmoodle.com/local/kopere_sitemap/sitemap.php">
 ```
 
 This link allows:
@@ -168,7 +168,7 @@ Allows you to define the public URL of the sitemap.
 Normally:
 
 ```text
-https://yourmoodle.com/local/sitemap/sitemap.php
+https://yourmoodle.com/local/kopere_sitemap/sitemap.php
 ```
 
 It is also possible to define an absolute URL.
