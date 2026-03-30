@@ -37,6 +37,7 @@ $string['adminpage_status'] = 'Plugin status';
 $string['adminpage_status_disabled'] = 'Disabled';
 $string['adminpage_status_enabled'] = 'Enabled';
 $string['adminpage_title'] = 'Public sitemap';
+$string['kopere_sitemap:viewadmin'] = 'View sitemap administration';
 $string['pluginname'] = 'Public sitemap';
 $string['privacy:metadata'] = 'The local_kopere_sitemap plugin does not store personal data.';
 $string['settings_enabled'] = 'Enable plugin';
