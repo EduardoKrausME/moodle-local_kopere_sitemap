@@ -28,6 +28,11 @@ namespace local_kopere_sitemap\privacy;
  * Privacy API provider for a plugin with no personal data.
  */
 class provider implements \core_privacy\local\metadata\null_provider {
+    /**
+     * Function get_reason
+     *
+     * @return string
+     */
     public static function get_reason(): string {
         return "privacy:metadata";
     }
