@@ -1,0 +1,23 @@
+# (RFC §4.1). Authors update their listing with an ordinary commit; camp
+# ingests and hash-pins it at each tagged release. Listing for local_kopere_sitemap.
+
+name: "Public Sitemap"
+summary: "Generate an organized public sitemap to improve navigation and discovery."
+description: |
+  Generate an organized public sitemap to improve navigation and discovery.
+
+  local_kopere_sitemap is a Moodle plugin that automatically generates a public XML sitemap for the site and adds a reference to the sitemap in the <head> of all Moodle pages.
+
+  Key capabilities:
+  - XML Sitemap Generator
+  - Automatic injection of the sitemap link into the site's <head>
+  - loc ' public URL
+
+  Supported Moodle versions in the supplied plugin list: 3.9 - 5.0.
+
+labels:
+  - fully-free
+category: "administration"
+links:
+  docs: https://github.com/EduardoKrausME/moodle-local_kopere_sitemap#readme
+  issues: https://github.com/EduardoKrausME/moodle-local_kopere_sitemap/issues
