@@ -63,6 +63,13 @@ if ($hassiteconfig) {
     ));
 
     $settings->add(new admin_setting_configcheckbox(
+        "local_kopere_sitemap/includetags",
+        get_string("settings_includetags", "local_kopere_sitemap"),
+        get_string("settings_includetags_desc", "local_kopere_sitemap"),
+        1
+    ));
+
+    $settings->add(new admin_setting_configcheckbox(
         "local_kopere_sitemap/includeblog",
         get_string("settings_includeblog", "local_kopere_sitemap"),
         get_string("settings_includeblog_desc", "local_kopere_sitemap"),

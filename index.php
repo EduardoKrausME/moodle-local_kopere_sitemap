@@ -61,6 +61,10 @@ $templatecontext = [
             "enabled" => config::include_categories(),
         ],
         [
+            "name" => get_string("adminpage_item_tags", "local_kopere_sitemap"),
+            "enabled" => config::include_tags(),
+        ],
+        [
             "name" => get_string("adminpage_item_blog", "local_kopere_sitemap"),
             "enabled" => config::include_blog(),
         ],

@@ -34,6 +34,7 @@ use local_kopere_sitemap\repository\category_repository;
 use local_kopere_sitemap\repository\course_repository;
 use local_kopere_sitemap\repository\forum_repository;
 use local_kopere_sitemap\repository\frontpage_repository;
+use local_kopere_sitemap\repository\tag_repository;
 use XMLWriter;
 
 /**
@@ -70,6 +71,10 @@ class sitemap_builder {
 
         if (config::include_courses()) {
             $items = array_merge($items, (new course_repository())->get_urls());
+        }
+
+        if (config::include_tags()) {
+            $items = array_merge($items, (new tag_repository())->get_urls());
         }
 
         if (config::include_blog()) {

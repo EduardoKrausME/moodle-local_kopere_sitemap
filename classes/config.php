@@ -71,6 +71,20 @@ class config {
     }
 
     /**
+     * Returns true when tags should be included.
+     *
+     * The setting defaults to enabled for installations upgrading from
+     * a plugin version that did not yet have the includetags setting.
+     *
+     * @return bool
+     * @throws dml_exception
+     */
+    public static function include_tags(): bool {
+        $value = get_config("local_kopere_sitemap", "includetags");
+        return $value === false ? true : (bool)$value;
+    }
+
+    /**
      * Returns true when blog should be included.
      *
      * @return bool
