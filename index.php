@@ -30,7 +30,7 @@ require_login();
 require_capability("local/kopere_sitemap:viewadmin", context_system::instance());
 
 $PAGE->set_context(context_system::instance());
-$PAGE->set_url(new moodle_url("/local/kopere_sitemap/index.php"));
+$PAGE->set_url(new moodle_url("/local/kopere_sitemap/"));
 $PAGE->set_pagelayout("admin");
 $PAGE->set_title(get_string("adminpage_title", "local_kopere_sitemap"));
 $PAGE->set_heading(get_string("adminpage_title", "local_kopere_sitemap"));

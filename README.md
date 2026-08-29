@@ -71,7 +71,7 @@ Includes visible categories in the course tree.
 Example:
 
 ```text
-https://yourmoodle.com/course/index.php?categoryid=3
+https://yourmoodle.com/course/?categoryid=3
 ```
 
 Only categories **marked as visible** are included.
@@ -100,7 +100,7 @@ If enabled, the sitemap includes public entries from the Moodle blog.
 Example:
 
 ```text
-https://yourmoodle.com/blog/index.php?entryid=54
+https://yourmoodle.com/blog/?entryid=54
 ```
 
 Only posts published with public visibility are listed.
