@@ -24,6 +24,7 @@
 
 namespace local_kopere_sitemap;
 
+use ddl_exception;
 use dml_exception;
 
 /**
@@ -78,10 +79,17 @@ class config {
      *
      * @return bool
      * @throws dml_exception
+     * @throws ddl_exception
      */
     public static function include_tags(): bool {
-        $value = get_config("local_kopere_sitemap", "includetags");
-        return $value === false ? true : (bool)$value;
+        global $DB;
+
+        $manager = $DB->get_manager();
+        if (!$manager->table_exists("tag") || !$manager->table_exists("tag_instance")) {
+            return false;
+        }
+
+        return (bool)get_config("local_kopere_sitemap", "includetags");
     }
 
     /**
@@ -89,8 +97,15 @@ class config {
      *
      * @return bool
      * @throws dml_exception
+     * @throws ddl_exception
      */
     public static function include_blog(): bool {
+        global $DB;
+
+        if (!$DB->get_manager()->table_exists("post")) {
+            return false;
+        }
+
         return (bool)get_config("local_kopere_sitemap", "includeblog");
     }
 

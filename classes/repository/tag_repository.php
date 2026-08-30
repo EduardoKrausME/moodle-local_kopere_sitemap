@@ -36,18 +36,12 @@ class tag_repository {
      * Returns tag URLs.
      *
      * @return array<int, array<string, string>>
-     * @throws ddl_exception
      * @throws dml_exception
      */
     public function get_urls(): array {
         global $CFG, $DB;
 
         if (empty($CFG->usetags)) {
-            return [];
-        }
-
-        $manager = $DB->get_manager();
-        if (!$manager->table_exists("tag") || !$manager->table_exists("tag_instance")) {
             return [];
         }
 
@@ -66,7 +60,6 @@ class tag_repository {
         foreach ($records as $record) {
             $items[] = [
                 "loc" => core_tag_tag::make_url($record->tagcollid, $record->rawname)->out(false),
-                "lastmod" => !empty($record->timemodified) ? date("c", $record->timemodified) : "",
             ];
         }
 

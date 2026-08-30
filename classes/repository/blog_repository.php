@@ -27,6 +27,7 @@ namespace local_kopere_sitemap\repository;
 use core\exception\moodle_exception;
 use ddl_exception;
 use dml_exception;
+use local_kopere_sitemap\config;
 use moodle_url;
 
 /**
@@ -44,10 +45,6 @@ class blog_repository {
     public function get_urls(): array {
         global $DB;
 
-        if (!$DB->get_manager()->table_exists("post")) {
-            return [];
-        }
-
         $sql = "SELECT p.id, p.lastmodified
                   FROM {post} p
                  WHERE p.publishstate = :publishstate
@@ -61,6 +58,24 @@ class blog_repository {
                 "loc" => (new moodle_url("/blog/", ["entryid" => $record->id]))->out(false),
                 "lastmod" => !empty($record->lastmodified) ? date("c", $record->lastmodified) : "",
             ];
+        }
+
+        // Blog tags.
+        if (config::include_tags()) {
+            $sql = "SELECT t.id, t.tagcollid, t.rawname, t.timemodified
+                      FROM {tag}          t
+                      JOIN {tag_instance} ti ON t.id = ti.tagid
+                     WHERE ti.itemtype = 'post'
+                  ORDER BY t.id ASC";
+
+            $records = $DB->get_records_sql($sql);
+            $items = [];
+
+            foreach ($records as $record) {
+                $items[] = [
+                    "loc" => (new moodle_url("/blog/", ["tagid" => $record->id]))->out(false),
+                ];
+            }
         }
 
         return $items;

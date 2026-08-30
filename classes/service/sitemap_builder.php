@@ -73,10 +73,6 @@ class sitemap_builder {
             $items = array_merge($items, (new course_repository())->get_urls());
         }
 
-        if (config::include_tags()) {
-            $items = array_merge($items, (new tag_repository())->get_urls());
-        }
-
         if (config::include_blog()) {
             $items = array_merge($items, (new blog_repository())->get_urls());
         }
@@ -87,6 +83,10 @@ class sitemap_builder {
 
         if (config::include_frontpage_modules()) {
             $items = array_merge($items, (new frontpage_repository())->get_urls());
+        }
+
+        if (config::include_tags()) {
+            $items = array_merge($items, (new tag_repository())->get_urls());
         }
 
         return $this->remove_duplicates($items);
