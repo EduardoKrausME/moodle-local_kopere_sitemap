@@ -39,9 +39,7 @@ class hook_callbacks {
      * @return void
      * @throws dml_exception
      */
-    public static function before_standard_head_html_generation(
-        before_standard_head_html_generation $hook
-    ): void {
+    public static function before_standard_head_html_generation(before_standard_head_html_generation $hook): void {
         if (!config::is_enabled()) {
             return;
         }
