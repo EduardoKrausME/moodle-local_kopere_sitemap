@@ -50,20 +50,44 @@ class sitemap_builder {
      * @throws dml_exception
      */
     public function build_items(): array {
+        if (!config::is_enabled()) {
+            return [];
+        }
+
+        return $this->remove_duplicates(array_merge(
+            $this->get_frontpage_items(),
+            $this->get_repository_items()
+        ));
+    }
+
+    /**
+     * Returns the frontpage URL when configured to include it.
+     *
+     * @return array<int, array<string, string>>
+     */
+    private function get_frontpage_items(): array {
         global $CFG;
 
+        if (!config::include_frontpage()) {
+            return [];
+        }
+
+        return [[
+            "loc" => $CFG->wwwroot . "/",
+            "lastmod" => date("c"),
+        ]];
+    }
+
+    /**
+     * Collects URLs from the enabled content repositories.
+     *
+     * @return array<int, array<string, string>>
+     * @throws moodle_exception
+     * @throws ddl_exception
+     * @throws dml_exception
+     */
+    private function get_repository_items(): array {
         $items = [];
-
-        if (!config::is_enabled()) {
-            return $items;
-        }
-
-        if (config::include_frontpage()) {
-            $items[] = [
-                "loc" => $CFG->wwwroot . "/",
-                "lastmod" => date("c"),
-            ];
-        }
 
         if (config::include_categories()) {
             $items = array_merge($items, (new category_repository())->get_urls());
@@ -89,7 +113,7 @@ class sitemap_builder {
             $items = array_merge($items, (new tag_repository())->get_urls());
         }
 
-        return $this->remove_duplicates($items);
+        return $items;
     }
 
     /**

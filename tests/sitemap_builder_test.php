@@ -39,6 +39,11 @@ final class sitemap_builder_test extends advanced_testcase {
      */
     public function test_build_xml_produces_one_valid_document(): void {
         $builder = new class extends sitemap_builder {
+            /**
+             * Supplies sample sitemap entries for XML serialization.
+             *
+             * @return array<int, array<string, string>>
+             */
             public function build_items(): array {
                 return [
                     [
@@ -74,6 +79,11 @@ final class sitemap_builder_test extends advanced_testcase {
      */
     public function test_build_xml_with_no_items(): void {
         $builder = new class extends sitemap_builder {
+            /**
+             * Supplies an empty sitemap to test serialization.
+             *
+             * @return array<int, array<string, string>>
+             */
             public function build_items(): array {
                 return [];
             }

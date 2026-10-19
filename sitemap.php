@@ -26,6 +26,7 @@ use local_kopere_sitemap\service\sitemap_builder;
 
 // phpcs:disable moodle.Files.RequireLogin.Missing
 // Capture output from the Moodle bootstrap before any XML is generated.
+// phpcs:ignore moodle.Files.MoodleInternal.MoodleInternalGlobalState -- XML requires buffering before bootstrap.
 ob_start();
 require_once(__DIR__ . "/../../config.php");
 
