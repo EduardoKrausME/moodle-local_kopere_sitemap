@@ -101,39 +101,79 @@ class sitemap_builder {
      * @throws moodle_exception
      */
     public function send_xml(): void {
-        $cache = cache::make("local_kopere_sitemap", "sitemapxml");
-        $cachekey = "sitemapxml";
-        $xml = $cache->get($cachekey);
+        $xml = $this->get_xml();
 
-        if (!$xml) {
-            $items = $this->build_items();
-
-            $writer = new XMLWriter();
-            $writer->openMemory();
-            $writer->startDocument("1.0", "UTF-8");
-            $writer->startElement("urlset");
-            $writer->writeAttribute("xmlns", "http://www.sitemaps.org/schemas/sitemap/0.9");
-
-            foreach ($items as $item) {
-                $writer->startElement("url");
-                $writer->writeElement("loc", $item["loc"]);
-
-                if (!empty($item["lastmod"])) {
-                    $writer->writeElement("lastmod", $item["lastmod"]);
+        // Moodle bootstrap or other plugins can leave warnings or markup in output buffers.
+        // A sitemap response must contain exactly one XML document and no surrounding content.
+        while (ob_get_level() > 0) {
+            $status = ob_get_status();
+            if (($status["flags"] & PHP_OUTPUT_HANDLER_REMOVABLE) === 0) {
+                if (($status["flags"] & PHP_OUTPUT_HANDLER_CLEANABLE) !== 0) {
+                    ob_clean();
                 }
-
-                $writer->endElement();
+                break;
             }
-
-            $writer->endElement();
-            $writer->endDocument();
-            $xml = $writer->outputMemory();
-            $cache->set($cachekey, $xml);
+            ob_end_clean();
         }
 
         header("Content-Type: application/xml; charset=UTF-8");
         header("X-Robots-Tag: noindex");
         echo $xml;
+    }
+
+    /**
+     * Returns the cached sitemap, regenerating a corrupted XML declaration when necessary.
+     *
+     * @return string
+     * @throws ddl_exception
+     * @throws dml_exception
+     * @throws moodle_exception
+     */
+    public function get_xml(): string {
+        $cache = cache::make("local_kopere_sitemap", "sitemapxml");
+        $cachekey = "sitemapxml";
+        $xml = $cache->get($cachekey);
+
+        // A concatenated or prefixed XML document must never be served from cache.
+        if (!is_string($xml) || strpos($xml, "<?xml") !== 0 || substr_count($xml, "<?xml") !== 1) {
+            $xml = $this->build_xml();
+            $cache->set($cachekey, $xml);
+        }
+
+        return $xml;
+    }
+
+    /**
+     * Generates a single, well-formed XML sitemap document.
+     *
+     * @return string
+     * @throws ddl_exception
+     * @throws dml_exception
+     * @throws moodle_exception
+     */
+    public function build_xml(): string {
+        $items = $this->build_items();
+
+        $writer = new XMLWriter();
+        $writer->openMemory();
+        $writer->startDocument("1.0", "UTF-8");
+        $writer->startElement("urlset");
+        $writer->writeAttribute("xmlns", "http://www.sitemaps.org/schemas/sitemap/0.9");
+
+        foreach ($items as $item) {
+            $writer->startElement("url");
+            $writer->writeElement("loc", $item["loc"]);
+
+            if (!empty($item["lastmod"])) {
+                $writer->writeElement("lastmod", $item["lastmod"]);
+            }
+
+            $writer->endElement();
+        }
+
+        $writer->endElement();
+        $writer->endDocument();
+        return $writer->outputMemory();
     }
 
     /**
