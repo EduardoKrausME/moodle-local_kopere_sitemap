@@ -25,6 +25,7 @@
 use local_kopere_sitemap\service\sitemap_builder;
 
 // phpcs:disable moodle.Files.RequireLogin.Missing
+// phpcs:disable moodle.Files.MoodleInternal.MoodleInternalGlobalState
 ob_start();
 require_once(__DIR__ . "/../../config.php");
 
