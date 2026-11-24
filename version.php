@@ -24,8 +24,8 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version = 2026101502;
-$plugin->release = '1.2.7';
+$plugin->version = 2026112400;
+$plugin->release = '1.2.8';
 $plugin->component = "local_kopere_sitemap";
 $plugin->requires = 2024042200;
 $plugin->maturity = MATURITY_STABLE;
